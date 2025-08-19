@@ -2,7 +2,7 @@
 using HRLeaveManagement.Application.Contracts.Persistence;
 using MediatR;
 
-namespace HRLeaveManagement.Application.Features.LeaveType.Commands.CreateLeaveType;
+namespace HRLeaveManagement.Application.Features.LeaveType.Commands.UpdateLeaveType;
 
 public class UpdateLeaveTypeCommandHandler : IRequestHandler<UpdateLeaveTypeCommand, Unit>
 {
