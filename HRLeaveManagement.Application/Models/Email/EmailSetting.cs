@@ -1,5 +1,6 @@
 ﻿namespace HRLeaveManagement.Application.Models.Email;
 
+
 public class EmailSetting
 {
     public string ApiKey { get; set; }

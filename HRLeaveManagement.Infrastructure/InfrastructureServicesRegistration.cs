@@ -10,7 +10,7 @@ namespace HRLeaveManagement.Infrastructure;
 
 public static class InfrastructureServicesRegistration
 {
-    public static IServiceCollection AddPersistenceServices(this IServiceCollection services,
+    public static IServiceCollection AddInfrastructureServices(this IServiceCollection services,
         IConfiguration configuration)
     {
         // Fix: Use a lambda to configure EmailSetting  
