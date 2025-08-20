@@ -17,26 +17,27 @@ public class LeaveTypeConfiguration : IEntityTypeConfiguration<LeaveType>
                 Id = 1,
                 Name = "Annual Leave",
                 DefaultDays = 20,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now
+                CreatedAt = new DateTime(2025, 01, 01),
+                UpdatedAt = new DateTime(2025, 01, 01)
             },
             new LeaveType
             {
                 Id = 2,
                 Name = "Sick Leave",
                 DefaultDays = 10,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now
+                CreatedAt = new DateTime(2025, 01, 01),
+                UpdatedAt = new DateTime(2025, 01, 01)
             },
             new LeaveType
             {
                 Id = 3,
                 Name = "Maternity Leave",
                 DefaultDays = 90,
-                CreatedAt = DateTime.Now,
-                UpdatedAt = DateTime.Now
+                CreatedAt = new DateTime(2025, 01, 01),
+                UpdatedAt = new DateTime(2025, 01, 01)
             }
         );
+
 
         // q: Configure properties
         builder.Property(lt => lt.Name)

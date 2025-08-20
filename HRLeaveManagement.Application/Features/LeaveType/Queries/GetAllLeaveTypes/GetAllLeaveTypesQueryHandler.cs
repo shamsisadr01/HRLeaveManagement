@@ -5,7 +5,7 @@ using MediatR;
 
 namespace HRLeaveManagement.Application.Features.LeaveType.Queries.GetAllLeaveTypes;
 
-public class GetAllLeaveTypesQueryHandler : IRequestHandler<GetAllLeaveTypesQuery, IEnumerable<Domain.LeaveType>>
+public class GetAllLeaveTypesQueryHandler : IRequestHandler<GetAllLeaveTypesQuery, IEnumerable<LeaveTypeDto>>
 {
     private readonly ILeaveTypeRepository _leaveTypeRepository;
     private readonly IMapper _mapper;
@@ -18,11 +18,11 @@ public class GetAllLeaveTypesQueryHandler : IRequestHandler<GetAllLeaveTypesQuer
         _mapper = mapper;
         _logger = logger;
     }
-    public async Task<IEnumerable<Domain.LeaveType>> Handle(GetAllLeaveTypesQuery request, CancellationToken cancellationToken)
+    public async Task<IEnumerable<LeaveTypeDto>> Handle(GetAllLeaveTypesQuery request, CancellationToken cancellationToken)
     {
         var leaveTypes = await _leaveTypeRepository.GetAllAsync();
 
-        var data = _mapper.Map<IEnumerable<Domain.LeaveType>>(leaveTypes);
+        var data = _mapper.Map<IEnumerable<LeaveTypeDto>>(leaveTypes);
 
         _logger.LogInformation("Retrieved {Count} leave types", data.Count());
         return data;
