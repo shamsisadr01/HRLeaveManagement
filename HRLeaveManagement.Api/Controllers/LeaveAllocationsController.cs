@@ -3,9 +3,6 @@ using HRLeaveManagement.Application.Features.LeaveAllocation.Commands.DeleteLeav
 using HRLeaveManagement.Application.Features.LeaveAllocation.Commands.UpdateLeaveAllocation;
 using HRLeaveManagement.Application.Features.LeaveAllocation.Queries.GetAllLeaveAllocation;
 using HRLeaveManagement.Application.Features.LeaveAllocation.Queries.GetAllLeaveAllocationDetails;
-using HRLeaveManagement.Application.Features.LeaveType.Commands.CreateLeaveType;
-using HRLeaveManagement.Application.Features.LeaveType.Commands.DeleteLeaveType;
-using HRLeaveManagement.Application.Features.LeaveType.Commands.UpdateLeaveType;
 using HRLeaveManagement.Application.Features.LeaveType.Queries.GetLeaveTypeDetails;
 using HRLeaveManagement.Domain;
 using MediatR;

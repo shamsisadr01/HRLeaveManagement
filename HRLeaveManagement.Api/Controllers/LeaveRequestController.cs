@@ -5,11 +5,6 @@ using HRLeaveManagement.Application.Features.LeaveRequest.Commands.DeleteLeaveRe
 using HRLeaveManagement.Application.Features.LeaveRequest.Commands.UpdateLeaveRequest;
 using HRLeaveManagement.Application.Features.LeaveRequest.Queries.GetLeaveRequestDetail;
 using HRLeaveManagement.Application.Features.LeaveRequest.Queries.GetLeaveRequestList;
-using HRLeaveManagement.Application.Features.LeaveType.Commands.CreateLeaveType;
-using HRLeaveManagement.Application.Features.LeaveType.Commands.DeleteLeaveType;
-using HRLeaveManagement.Application.Features.LeaveType.Commands.UpdateLeaveType;
-using HRLeaveManagement.Application.Features.LeaveType.Queries.GetAllLeaveTypes;
-using HRLeaveManagement.Application.Features.LeaveType.Queries.GetLeaveTypeDetails;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -65,7 +60,7 @@ namespace HRLeaveManagement.Api.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]
-        public async Task<IActionResult> Put(UpdateLeaveRequestCommandHandler leaveType)
+        public async Task<IActionResult> Put(UpdateLeaveRequestCommand leaveType)
         {
             await _mediator.Send(leaveType);
             return NoContent();

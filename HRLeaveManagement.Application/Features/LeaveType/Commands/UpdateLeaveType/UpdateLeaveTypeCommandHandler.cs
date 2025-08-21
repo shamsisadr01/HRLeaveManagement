@@ -27,7 +27,7 @@ public class UpdateLeaveTypeCommandHandler : IRequestHandler<UpdateLeaveTypeComm
         {
             _logger.LogWarning("Validation errors occurred while updating leave type: {Errors}", validationResult.Errors);
             // یک پیام برای کلاس زیر
-            throw new BadRequsetExceptions("Validation errors occurred while updating leave type", validationResult);
+            throw new BadRequestExceptions("Validation errors occurred while updating leave type", validationResult);
         }
         var leaveType = _mapper.Map<Domain.LeaveType>(request);
         await _leaveTypeRepository.UpdateAsync(leaveType);

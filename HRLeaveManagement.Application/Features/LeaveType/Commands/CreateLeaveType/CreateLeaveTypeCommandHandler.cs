@@ -22,7 +22,7 @@ public class CreateLeaveTypeCommandHandler : IRequestHandler<CreateLeaveTypeComm
         
         if(!validationResult.IsValid)
         {
-            throw new BadRequsetExceptions("Invalid LeaveType", validationResult);
+            throw new BadRequestExceptions("Invalid LeaveType", validationResult);
         }
 
         var leaveType = _mapper.Map<Domain.LeaveType>(request);

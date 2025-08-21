@@ -32,7 +32,7 @@ public class CreateLeaveRequestCommandHandler:IRequestHandler<CreateLeaveRequest
         ValidationResult validationResult = await validator.ValidateAsync(request, cancellationToken);
         if (validationResult.Errors.Any())
         {
-            throw new BadRequsetExceptions("Invalid Leave Request", validationResult);
+            throw new BadRequestExceptions("Invalid Leave Request", validationResult);
         }
 
         var leaveRequest = _mapper.Map<Domain.LeaveRequest>(request);

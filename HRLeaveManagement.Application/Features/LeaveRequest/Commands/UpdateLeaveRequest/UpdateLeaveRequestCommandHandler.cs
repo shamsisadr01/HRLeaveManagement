@@ -8,15 +8,15 @@ using MediatR;
 
 namespace HRLeaveManagement.Application.Features.LeaveRequest.Commands.UpdateLeaveRequest;
 
-public class UpdateLeaveRequestCommandHandler : IRequestHandler<LeaveRequestCommand, Unit>
+public class UpdateLeaveRequestCommand : IRequestHandler<LeaveRequestCommand, Unit>
 {
     private readonly ILeaveRequestRepository _leaveRequestRepository;
     private readonly ILeaveTypeRepository _leaveTypeRepository;
     private readonly IEmailSender _emailSender;
-    private readonly IAppLogger<UpdateLeaveRequestCommandHandler> _appLogger;
+    private readonly IAppLogger<UpdateLeaveRequestCommand> _appLogger;
     private readonly IMapper _mapper;
 
-    public UpdateLeaveRequestCommandHandler(ILeaveRequestRepository leaveRequestRepository, ILeaveTypeRepository leaveTypeRepository, IMapper mapper, IEmailSender emailSender, IAppLogger<UpdateLeaveRequestCommandHandler> appLogger)
+    public UpdateLeaveRequestCommand(ILeaveRequestRepository leaveRequestRepository, ILeaveTypeRepository leaveTypeRepository, IMapper mapper, IEmailSender emailSender, IAppLogger<UpdateLeaveRequestCommand> appLogger)
     {
         _leaveRequestRepository = leaveRequestRepository;
         _leaveTypeRepository = leaveTypeRepository;
@@ -37,7 +37,7 @@ public class UpdateLeaveRequestCommandHandler : IRequestHandler<LeaveRequestComm
         var validationResult = await validator.ValidateAsync(request);
         if (validationResult.Errors.Any())
         {
-            throw new BadRequsetExceptions("Invalid Leave Request",validationResult);
+            throw new BadRequestExceptions("Invalid Leave Request",validationResult);
         }
 
         _mapper.Map(request, leaveRequest);
