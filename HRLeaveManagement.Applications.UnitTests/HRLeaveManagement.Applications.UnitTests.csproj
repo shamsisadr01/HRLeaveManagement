@@ -26,7 +26,10 @@
     <Folder Include="Features\LeaveType\" />
     <Folder Include="Features\LeaveAllocations\" />
     <Folder Include="Features\LeaveRequest\" />
-    <Folder Include="Mocks\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HRLeaveManagement.Application\HRLeaveManagement.Application.csproj" />
   </ItemGroup>
 
 </Project>
