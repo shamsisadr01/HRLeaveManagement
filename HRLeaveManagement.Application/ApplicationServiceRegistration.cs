@@ -11,6 +11,7 @@ public static class ApplicationServiceRegistration
         services.AddAutoMapper(options =>
         {
             options.AddProfile<LeaveTypeProfile>();
+            options.AddProfile<LeaveAllocationProfile>();
         });
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
         return services;

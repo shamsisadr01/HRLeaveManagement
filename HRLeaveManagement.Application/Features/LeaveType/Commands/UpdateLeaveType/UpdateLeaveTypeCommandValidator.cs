@@ -19,8 +19,8 @@ public class UpdateLeaveTypeCommandValidator : AbstractValidator<UpdateLeaveType
             .NotNull()
             .MaximumLength(70).WithMessage("{PropertyName} must not exceed 100 characters");
         RuleFor(x => x.DefaultDays)
-            .GreaterThan(100).WithMessage("{PropertyName} must be greater than 100")
-            .LessThan(1).WithMessage("{PropertyName} must be less than 1");
+            .GreaterThan(1).WithMessage("{PropertyName} must be greater than 1")
+            .LessThan(100).WithMessage("{PropertyName} must be less than 100");
 
         RuleFor(p=>p)
             .MustAsync(LeaveTypeUniqueName)
