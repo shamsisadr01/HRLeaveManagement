@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace HRLeaveManagement.Application.Features.LeaveAllocation.Commands.CreateLeaveAllocation;
+namespace HRLeaveManagement.Application.Features.LeaveAllocation.Commands.UpdateLeaveAllocation;
 
 public class UpdateLeaveAllocationCommand : IRequest<Unit>
 {

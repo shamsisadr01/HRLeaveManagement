@@ -12,6 +12,7 @@ public static class ApplicationServiceRegistration
         {
             options.AddProfile<LeaveTypeProfile>();
             options.AddProfile<LeaveAllocationProfile>();
+            options.AddProfile<LeaveRequestListProfile>();
         });
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
         return services;

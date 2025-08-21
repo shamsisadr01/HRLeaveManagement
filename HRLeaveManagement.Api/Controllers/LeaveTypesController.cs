@@ -22,21 +22,21 @@ namespace HRLeaveManagement.Api.Controllers
             _mediator = mediator;
         }
 
-        // GET: api/<LeaveTypesController>
+        // GET: api/<LeaveRequestController>
         [HttpGet]
         public async Task<IEnumerable<LeaveTypeDto>> Get()
         {
            return await _mediator.Send(new GetAllLeaveTypesQuery());
         }
 
-        // GET api/<LeaveTypesController>/5
+        // GET api/<LeaveRequestController>/5
         [HttpGet("{id}")]
         public async Task<LeaveTypeDetailDto> Get(int id)
         {
             return await _mediator.Send(new GetLeaveTypeDetailsQuery(id));
         }
 
-        // POST api/<LeaveTypesController>
+        // POST api/<LeaveRequestController>
         [HttpPost]
         [ProducesResponseType(201)]
         [ProducesResponseType(400)]
@@ -46,7 +46,7 @@ namespace HRLeaveManagement.Api.Controllers
             return CreatedAtAction(nameof(Get), new { id = respone });
         }
 
-        // PUT api/<LeaveTypesController>/5
+        // PUT api/<LeaveRequestController>/5
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -57,7 +57,7 @@ namespace HRLeaveManagement.Api.Controllers
             return NoContent();
         }
 
-        // DELETE api/<LeaveTypesController>/5
+        // DELETE api/<LeaveRequestController>/5
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

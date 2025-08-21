@@ -1,9 +1,10 @@
 ﻿using AutoMapper;
 using HRLeaveManagement.Application.Contracts.Persistence;
 using HRLeaveManagement.Application.Exceptions;
+using HRLeaveManagement.Application.Features.LeaveAllocation.Commands.CreateLeaveAllocation;
 using MediatR;
 
-namespace HRLeaveManagement.Application.Features.LeaveAllocation.Commands.CreateLeaveAllocation;
+namespace HRLeaveManagement.Application.Features.LeaveAllocation.Commands.UpdateLeaveAllocation;
 
 public class UpdateLeaveAllocationCommandHandler : IRequestHandler<UpdateLeaveAllocationCommand, Unit>
 {
@@ -35,7 +36,7 @@ public class UpdateLeaveAllocationCommandHandler : IRequestHandler<UpdateLeaveAl
             throw new NotFoundExceptions(nameof(leaveAllocation), request.Id);
         }
 
-        _mapper.Map(request, typeof(Domain.LeaveAllocation));
+        _mapper.Map(request, leaveAllocation);
 
         await _leaveAllocationRepository.UpdateAsync(leaveAllocation);
 

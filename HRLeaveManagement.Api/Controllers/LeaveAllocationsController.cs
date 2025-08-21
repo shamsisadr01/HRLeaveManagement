@@ -1,5 +1,6 @@
 ﻿using HRLeaveManagement.Application.Features.LeaveAllocation.Commands.CreateLeaveAllocation;
 using HRLeaveManagement.Application.Features.LeaveAllocation.Commands.DeleteLeaveAllocation;
+using HRLeaveManagement.Application.Features.LeaveAllocation.Commands.UpdateLeaveAllocation;
 using HRLeaveManagement.Application.Features.LeaveAllocation.Queries.GetAllLeaveAllocation;
 using HRLeaveManagement.Application.Features.LeaveAllocation.Queries.GetAllLeaveAllocationDetails;
 using HRLeaveManagement.Application.Features.LeaveType.Commands.CreateLeaveType;

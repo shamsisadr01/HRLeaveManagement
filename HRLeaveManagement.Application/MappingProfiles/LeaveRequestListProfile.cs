@@ -1,21 +1,19 @@
 ﻿using AutoMapper;
 using HRLeaveManagement.Application.Features.LeaveAllocation.Commands.CreateLeaveAllocation;
 using HRLeaveManagement.Application.Features.LeaveAllocation.Commands.UpdateLeaveAllocation;
-using HRLeaveManagement.Application.Features.LeaveAllocation.Queries.GetAllLeaveAllocation;
-using HRLeaveManagement.Application.Features.LeaveAllocation.Queries.GetAllLeaveAllocationDetails;
+using HRLeaveManagement.Application.Features.LeaveRequest.Queries.GetLeaveRequestDetail;
+using HRLeaveManagement.Application.Features.LeaveRequest.Queries.GetLeaveRequestList;
 using HRLeaveManagement.Domain;
 
 namespace HRLeaveManagement.Application.MappingProfiles;
 
-public class LeaveAllocationProfile : Profile
+public class LeaveRequestListProfile : Profile
 {
-    public LeaveAllocationProfile()
+    public LeaveRequestListProfile()
     {
-        CreateMap<LeaveAllocationDto, LeaveAllocation>().ReverseMap();
-        CreateMap<LeaveAllocation, LeaveAllocationDetailsDto>();
+        CreateMap<LeaveRequest, LeaveRequestDto>().ReverseMap();
+        CreateMap<LeaveRequest, LeaveRequestDetailDto>();
         CreateMap<CreateLeaveAllocationCommand, LeaveAllocation>();
         CreateMap<UpdateLeaveAllocationCommand, LeaveAllocation>();
     }
-}
-
 }
