@@ -25,13 +25,10 @@ public class HRDatabaseContext : DbContext
     {
         foreach (var entry in ChangeTracker.Entries<BaseEntity>())
         {
+            entry.Entity.UpdatedAt = DateTime.Now;
             if (entry.State == EntityState.Added)
             {
                 entry.Entity.CreatedAt = DateTime.Now;
-            }
-            else if (entry.State == EntityState.Modified)
-            {
-                entry.Entity.UpdatedAt = DateTime.Now;
             }
         }
         return base.SaveChangesAsync(cancellationToken);
