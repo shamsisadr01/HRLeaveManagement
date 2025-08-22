@@ -9,7 +9,7 @@ namespace HRLeaveManagement.Mvc.UI.Contracts
         Task<LeaveTypeVM> GetByIdAsync(int id);
 
         Task<Response<Guid>> CreateAsync(LeaveTypeVM leaveType);
-        Task<Response<Guid>> UpdateAsync(LeaveTypeVM leaveType);
+        Task<Response<Guid>> UpdateAsync(int id,LeaveTypeVM leaveType);
         Task<Response<Guid>> DeleteAsync(int id);
     }
 }
