@@ -6,4 +6,6 @@ public interface IUserService
 {
     Task<List<Employee>> GetEmployeesAsync();
     Task<Employee> GetEmployeeByIdAsync(string userId);
+
+    string? UserId { get; }
 }

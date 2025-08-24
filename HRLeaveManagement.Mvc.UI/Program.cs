@@ -30,6 +30,7 @@ builder.Services.AddAuthentication(configs =>
         options.Cookie.SameSite = SameSiteMode.Strict; // جلوگیری از CSRF
     });
 
+builder.Services.AddTransient<AuthenticatedHttpClientHandler>();
 builder.Services.AddHttpClient<IClient, Client>(client =>
 {
     client.BaseAddress = new Uri(builder.Configuration["ServiceUrls:HRLeaveManagementAPI"]);

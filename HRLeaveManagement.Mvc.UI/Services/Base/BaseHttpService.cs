@@ -1,12 +1,16 @@
-﻿namespace HRLeaveManagement.Mvc.UI.Services.Base
+﻿using AutoMapper;
+
+namespace HRLeaveManagement.Mvc.UI.Services.Base
 {
     public class BaseHttpService
     {
         protected readonly IClient _client;
+        protected readonly IMapper _mapper;
 
-        public BaseHttpService(IClient client)
+        public BaseHttpService(IClient client, IMapper mapper)
         {
             _client = client;
+            _mapper = mapper;
         }
 
         protected Response<Guid> ConvertApiExceptions(ApiException exception)

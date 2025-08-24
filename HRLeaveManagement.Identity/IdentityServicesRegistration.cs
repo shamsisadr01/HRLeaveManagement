@@ -53,6 +53,8 @@ public static class IdentityServicesRegistration
             };
         });
 
+        services.AddHttpContextAccessor();
+
         return services;
     }
 }

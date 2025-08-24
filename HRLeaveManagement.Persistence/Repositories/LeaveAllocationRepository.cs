@@ -33,7 +33,7 @@ public class LeaveAllocationRepository : GenericRepository<LeaveAllocation>, ILe
             .ToListAsync();
     }
 
-    public async Task<LeaveAllocation> GetUserAllocations(int leaveTypeId, string userId)
+    public async Task<LeaveAllocation> GetUserAllocation(int leaveTypeId, string userId)
     {
         return await _context.LeaveAllocations
             .Include(a => a.LeaveType)
