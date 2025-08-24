@@ -15,6 +15,7 @@ public class ChangeLeaveRequestApprovalCommandHandler : IRequestHandler<ChangeLe
     private readonly ILeaveTypeRepository _leaveTypeRepository;
     private readonly IAppLogger<ChangeLeaveRequestApprovalCommandHandler> _appLogger;
     private readonly IMapper _mapper;
+    private readonly ILeaveAllocationRepository _leaveAllocationRepository;
 
     public ChangeLeaveRequestApprovalCommandHandler(ILeaveRequestRepository leaveRequestRepository,
         IEmailSender emailSender, ILeaveTypeRepository leaveTypeRepository,
@@ -38,6 +39,16 @@ public class ChangeLeaveRequestApprovalCommandHandler : IRequestHandler<ChangeLe
 
         leaveRequest.Approved = request.Approved;
         await _leaveRequestRepository.UpdateAsync(leaveRequest);
+
+        // if request is approved, get and update the employee's allocations
+        if (request.Approved)
+        {
+            int daysRequested = (int)(leaveRequest.EndDate - leaveRequest.StartDate).TotalDays;
+            var allocation = await _leaveAllocationRepository.GetUserAllocation(leaveRequest.LeaveTypeId, leaveRequest.RequestingEmployeeId);
+            allocation.NumberOfDays -= daysRequested;
+
+            await _leaveAllocationRepository.UpdateAsync(allocation);
+        }
 
         try
         {
