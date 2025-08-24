@@ -13,7 +13,7 @@ namespace HRLeaveManagement.Persistence.IntegrationTests
             var options = new DbContextOptionsBuilder<HRDatabaseContext>()
                 .UseInMemoryDatabase(databaseName: "HRLeaveManagement")
                 .Options;
-            _context = new HRDatabaseContext(options);
+            _context = new HRDatabaseContext(options,null);
         }
 
         [Fact]

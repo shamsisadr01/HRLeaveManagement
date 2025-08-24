@@ -7,10 +7,8 @@ namespace HRLeaveManagement.Mvc.UI.Services;
 
 public class LeaveTypeService : BaseHttpService, ILeaveTypeService
 {
-    private readonly IMapper _mapper;
-    public LeaveTypeService(IClient client,IMapper mapper) : base(client)
+    public LeaveTypeService(IClient client,IMapper mapper) : base(client,mapper)
     {
-        _mapper = mapper;
     }
 
     public async Task<List<LeaveTypeVM>> GetAllAsync()

@@ -1,4 +1,5 @@
-﻿using HRLeaveManagement.Domain;
+﻿using HRLeaveManagement.Application.Contracts.Identity;
+using HRLeaveManagement.Domain;
 using HRLeaveManagement.Domain.Common;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,7 +7,8 @@ namespace HRLeaveManagement.Persistence.DatabaseContext;
 
 public class HRDatabaseContext : DbContext
 {
-    public HRDatabaseContext(DbContextOptions<HRDatabaseContext> options) : base(options)
+    private readonly IUserService _userService;
+    public HRDatabaseContext(DbContextOptions<HRDatabaseContext> options,IUserService userService) : base(options)
     {
     }
 
@@ -26,9 +28,11 @@ public class HRDatabaseContext : DbContext
         foreach (var entry in ChangeTracker.Entries<BaseEntity>())
         {
             entry.Entity.UpdatedAt = DateTime.Now;
+            entry.Entity.UpdateBy = _userService.UserId;
             if (entry.State == EntityState.Added)
             {
                 entry.Entity.CreatedAt = DateTime.Now;
+                entry.Entity.CreateBy = _userService.UserId;
             }
         }
         return base.SaveChangesAsync(cancellationToken);

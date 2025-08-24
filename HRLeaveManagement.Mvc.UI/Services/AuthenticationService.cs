@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using AutoMapper;
 using IAuthenticationService = HRLeaveManagement.Mvc.UI.Contracts.IAuthenticationService;
 
 namespace HRLeaveManagement.Mvc.UI.Services;
@@ -11,8 +12,9 @@ public class AuthenticationService : BaseHttpService,IAuthenticationService
 {
     private readonly HttpContext _httpContext;
     private readonly JwtSecurityTokenHandler jwtSecurityTokenHandler;
-    public AuthenticationService(IClient client,IHttpContextAccessor accessor, JwtSecurityTokenHandler jwtSecurityTokenHandler) : 
-        base(client)
+
+    public AuthenticationService(IClient client,IMapper mapper,IHttpContextAccessor accessor, JwtSecurityTokenHandler jwtSecurityTokenHandler) : 
+        base(client, mapper)
     {
         this.jwtSecurityTokenHandler = jwtSecurityTokenHandler;
         _httpContext = accessor.HttpContext;

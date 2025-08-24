@@ -66,30 +66,6 @@ namespace HRLeaveManagement.Api.Controllers
             return NoContent();
         }
 
-        [HttpPut]
-        [Route("CancelRequest")]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesDefaultResponseType]
-        public async Task<IActionResult> Put(CancelLeaveRequestCommand leaveType)
-        {
-            await _mediator.Send(leaveType);
-            return NoContent();
-        }
-
-        [HttpPut]
-        [Route("UpdateApproval")]
-        [ProducesResponseType(StatusCodes.Status204NoContent)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesDefaultResponseType]
-        public async Task<IActionResult> Put(ChangeLeaveRequestApprovalCommand leaveType)
-        {
-            await _mediator.Send(leaveType);
-            return NoContent();
-        }
-
 
         // PUT api/<LeaveRequestsController>/CancelRequest/
         [HttpPut]
