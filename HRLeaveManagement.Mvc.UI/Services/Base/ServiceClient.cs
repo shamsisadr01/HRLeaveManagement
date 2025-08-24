@@ -2146,6 +2146,24 @@ namespace HRLeaveManagement.Mvc.UI.Services.Base
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.5.0.0 (NJsonSchema v11.4.0.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class Employee
+    {
+
+        [System.Text.Json.Serialization.JsonPropertyName("id")]
+        public int Id { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("firstName")]
+        public string FirstName { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("lastName")]
+        public string LastName { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("email")]
+        public string Email { get; set; }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.5.0.0 (NJsonSchema v11.4.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class LeaveAllocationDetailsDto
     {
 
@@ -2191,6 +2209,12 @@ namespace HRLeaveManagement.Mvc.UI.Services.Base
     public partial class LeaveRequestDetailDto
     {
 
+        [System.Text.Json.Serialization.JsonPropertyName("id")]
+        public int Id { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("employee")]
+        public Employee Employee { get; set; }
+
         [System.Text.Json.Serialization.JsonPropertyName("startDate")]
         public System.DateTimeOffset StartDate { get; set; }
 
@@ -2223,6 +2247,12 @@ namespace HRLeaveManagement.Mvc.UI.Services.Base
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "14.5.0.0 (NJsonSchema v11.4.0.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class LeaveRequestDto
     {
+
+        [System.Text.Json.Serialization.JsonPropertyName("id")]
+        public int Id { get; set; }
+
+        [System.Text.Json.Serialization.JsonPropertyName("employee")]
+        public Employee Employee { get; set; }
 
         [System.Text.Json.Serialization.JsonPropertyName("startDate")]
         public System.DateTimeOffset StartDate { get; set; }

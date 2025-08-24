@@ -1,9 +1,13 @@
 ﻿using HRLeaveManagement.Application.Features.LeaveType.Queries.GetAllLeaveTypes;
+using HRLeaveManagement.Application.Models.Identity;
 
 namespace HRLeaveManagement.Application.Features.LeaveRequest.Queries.GetLeaveRequestList;
 
 public class LeaveRequestDto
 {
+    public int Id { get; set; }
+    public Employee Employee { get; set; }
+
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
 

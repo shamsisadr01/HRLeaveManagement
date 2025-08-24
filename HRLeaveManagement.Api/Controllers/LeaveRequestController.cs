@@ -29,7 +29,7 @@ namespace HRLeaveManagement.Api.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<LeaveRequestDto>>> Get(bool isLoggeInUser = false)
         {
-            var leaveRequests = await _mediator.Send(new GetLeaveRequestListQuery());
+            var leaveRequests = await _mediator.Send(new GetLeaveRequestListQuery(isLoggeInUser));
             
             return Ok(leaveRequests);
         }
